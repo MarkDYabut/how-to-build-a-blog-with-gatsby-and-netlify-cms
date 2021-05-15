@@ -3,6 +3,9 @@ backend:
   branch: master
   media_folder: "images/uploads"
 
+media_folder: static/img
+public_folder: /img
+
   collections:
     - name: "blog"
       label: "Blog"
