@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: master
+  media_folder: "images/uploads"
+
+  collections:
+    - name: "blog"
+      label: "Blog"
+      folder: "content/blog"
+      create: true
+      slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+      fields:
+        - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Publish Date", name: "date", widget: "datetime" }
+        - { label: "Body", name: "body", widget: "markdown" }
+# Let's examine what each of these fields does:
+# name:  This one is used in routes like /admin/collections/blog
+# label: This one is used in the UI (User Interface). When you are in the admin page,
+#   you will see a big word "Blog" on the top of the screen. That big word "Blog" is the label.
+# folder: This one points to the file path where your blog posts are stored.
+# create: This one lets the user (you or whoever has admin access) create new documents (blog posts in this case) in these collections.
+# slug: This one is the template for filenames. {{year}}, {{month}}, and {{day}} which are pulled from the post's date field or save date.
+#   {{slug}} is a URL-safe version of the post's title. By default it is {{slug}}.
+
